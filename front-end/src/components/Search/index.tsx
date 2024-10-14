@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { Button } from 'primereact/button';
 import { InputText } from 'primereact/inputtext';
+import pyAssistent from '../../assets/invoke';
 
 import "primereact/resources/themes/lara-light-cyan/theme.css";
 import 'primeicons/primeicons.css';
@@ -15,7 +16,12 @@ function Search() {
   };
 
   const handleClick = async () => {
-		setResponse("ok");
+    try {
+      const result = await pyAssistent(search);
+      setResponse(result);
+    } catch (error) {
+      console.error('Erro ao obter resposta:', error);
+    }
   };
 
   return (
