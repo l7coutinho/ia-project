@@ -1,11 +1,12 @@
 import { PrimeReactProvider } from 'primereact/api'
+import Header from './components/Header'
 
 function App() {
 
   return (
     <>
       <PrimeReactProvider>
-        <h1>test</h1>
+        <Header />
       </PrimeReactProvider>
     </>
   )
