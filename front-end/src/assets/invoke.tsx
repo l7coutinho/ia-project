@@ -1,17 +1,17 @@
 import { RemoteRunnable } from "@langchain/core/runnables/remote";
 
-const pyAssistent = async (question: string) => {
+const pyAssistant = async (question: string): Promise<string> => {
   const chain = new RemoteRunnable({
-    url: `http://localhost:8000/python/`,
+    url: `http://localhost:8000/rag`,
   });
-
+  
   try {
-    const result: any = await chain.invoke({ question });
-    return result.content;
+    const result = await chain.invoke(question);
+    return result as string;
   } catch (error) {
     console.error("Error fetching:", error);
     throw error;
   }
 };
 
-export default pyAssistent;
+export default pyAssistant;

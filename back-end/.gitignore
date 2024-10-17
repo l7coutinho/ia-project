@@ -1,2 +1,6 @@
 .env
 .venv
+src/chroma_db
+src/__pycache__
+src/vectordb.py
+src/test.py
